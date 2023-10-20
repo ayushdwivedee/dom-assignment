@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+</head>
+<body>
+	<input type="text" name="name" id="name" placeholder="Enter your name">
+	<select id="gender">
+		<option value="">--gender--</option>
+		<option value="male">M</option>
+		<option value="female">F</option>
+	</select>
+	<input type="text" name="email" id="email" placeholder="Enter your email">
+	<input type="text" name="mobile" id="mobile" placeholder="Enter your mobile number">
+	<hr>
+	<h1 id="dName">NAME</h1>
+	<h2 id="dGender">GENDER</h2>
+	<h3 id="dEmail">EMAIL</h3>
+	<h4 id="dMobile">MOBILE</h4>
+	<hr>
+	<button onclick="showName()">NAME</button>
+	<button onclick="showGender()">GENDER</button>
+	<button onclick="showEmail()">EMAIL</button>
+	<button onclick="showMobile()">MOBILE</button>
+	<button onclick="resetForm()">RESET FORM</button>
+	<button onclick="resetDisplay()">RESET DISPLAY</button>
+	<script type="text/javascript">
+        let h1tag=document.getElementById("dName");
+        let h2tag=document.getElementById("dGender");
+        let h3tag=document.getElementById("dEmail");
+        let h4tag=document.getElementById("dMobile");
+
+        let inptag1=document.getElementById("name");
+        let inptag2=document.getElementById("email");
+        let inptag3=document.getElementById("mobile");
+        let select=document.getElementById("gender");
+		function showName() {
+			// Show filled name inside h1
+        h1tag.innerText=inptag1.value;
+		}
+
+		function showGender() {
+			// Show the selected gender inside h2
+            h2tag.innerText=select.value;
+		}
+
+		function showEmail() {
+			// Show the filled email inside h3
+            h3tag.innerText=inptag2.value;
+		}
+
+		function showMobile() {
+			// Show the filled mobile inside h4
+            h4tag.innerText=inptag3.value;
+		}
+
+		function resetForm() {
+			// Reset all the form elements to default values (blank "")
+          inptag1.value="";
+          inptag2.value="";
+          inptag3.value="";
+          select.value="";
+		}
+
+		function resetDisplay() {
+			// Reset all the headings (h1, h2, h3, h4) to blank values
+            h1tag.innerText= "NAME"  ;
+            h2tag.innerText="GENDER" ;
+            h3tag.innerText= "EMAIL";
+            h4tag.innerText="MOBILE" ;
+		}
+	</script>
+</body>
+</html>
