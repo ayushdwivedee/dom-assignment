@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Calculater</title>
+    <style>
+        .box{
+            display: flex;
+            justify-content: space-evenly;   
+        }
+        .inp{
+            font-size: 32px;
+            
+        }
+        .button{
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .button>button{
+            font-size: larger;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="number" class="inp" id="inp1" placeholder="enter 1st Number">
+        <input type="number" class="inp" id="inp2" placeholder="enter 2nd Number">
+    </div>
+    <div class="button">
+        <button onclick="add()">Add</button>
+        <button onclick="sub()">Subtract</button>
+        <button onclick="multi()">Multiply</button>
+        <button onclick="devide()">Devide</button>
+    </div>
+</body>
+<script>
+let inptag1=document.getElementById("inp1");
+let inptag2=document.getElementById("inp2");
+function add(){
+    let total=(+inptag1.value)+(+inptag2.value);
+    alert(total)
+}
+function sub(){
+    let sub=(+inptag1.value)-(+inptag2.value);
+    alert(sub)
+}
+function multi(){
+    let multi=(+inptag1.value)*(+inptag2.value);
+    alert(multi)
+}
+function devide(){
+    let devide=(+inptag1.value)/(+inptag2.value);
+    alert( devide)
+}
+</script>
+</html>
