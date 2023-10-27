@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MasaiCalculator</title>
+    <style>
+        .bg{
+            padding: 40px;
+            margin: auto;
+            width: 400px;
+            height: 600px;
+            background-color: rgb(236, 143, 22);
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-gap: 20px;
+             
+            justify-content: center;
+            grid-template-areas: "box box box box"
+                                 "s e n dev"
+                                 "f fi six multi"
+                                 "o t th min"
+                                 "clr z eq p";                   
+                                 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;                                 
+        }
+        #white{
+            background-color: white;
+            grid-area: box;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            font-weight: 700;
+            font-size: 36px;
+        }
+        
+        .st{
+            
+            font-size: 26px;
+           
+            border: 1px solid red ;
+            
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border-radius: 10px;
+            font-weight: 700;
+        }   
+        .s{
+            grid-area: s;
+            background-color: white;
+        }
+        .e{
+            grid-area: e;
+            background-color: white;
+        }
+        .n{
+            grid-area: n;
+            background-color: white;
+        }
+        .devide{
+            grid-area: dev;
+            background-color: black;
+            color: white;
+        }
+        .f{
+            grid-area: f;
+            background-color: white;
+        }
+        .fi{
+            grid-area: fi;
+            background-color: white;
+        }
+        .six{
+            grid-area: six;
+            background-color: white;
+        }
+        .multi{
+            grid-area: multi;
+            background-color: black;
+            color: white;
+        }
+        .o{
+            grid-area: o;
+            background-color: white;
+        }
+        .t{
+            grid-area: t;
+            background-color: white;
+        }
+        .th{
+            grid-area: th;
+            background-color: white;
+        }
+        .min{
+            grid-area: min;
+            background-color: black;
+            color: white;
+        }
+        .clr{
+            grid-area: clr;
+            background-color: red;
+            color: white;
+        }
+        .z{
+            grid-area: z;
+            background-color: white;
+        }
+        .p{
+            grid-area: p;
+            background-color: black;
+            color: white;
+        }
+        .eq{
+            grid-area: eq;
+            background-color: black;
+            color: white;
+        }
+        .eq:hover{
+            cursor: pointer;
+        }
+        h1{
+            color: teal;
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Masai Calculator</h1>
+    <div class="bg">
+        <button  id="white"></button>
+        <button  class="s st num"  >7</button>
+        <button  class="e st num">8</button>
+        <button  class="n st num">9</button>
+        <button  class="devide st op">/</button>
+        <button  class="f st num">4</button>
+        <button  class="fi st num">5</button>
+        <button  class="six st num">6</button>
+        <button  class="multi st op">*</button>
+        <button  class="o st num">1</button>
+        <button  class="t st num">2</button>
+        <button  class="th st num">3</button>
+        <button  class="min st op">-</button>
+        <button  class="clr st">C</button>
+        <button  class="z st num">0</button>
+        <button  class="eq st op" onclick="Click()">=</button>
+        <button  class="p st op">+</button>
+        
+    </div>
+     
+</body>
+<script>
+ 
+let display=document.getElementById("white");
+let Num=document.getElementsByClassName("num");
+let operator=document.getElementsByClassName("op");
+ 
+let clear=document.getElementsByClassName("clr");
+clear[0].addEventListener('click',function(){
+    display.innerText=" ";
+})
+//console.log(Num)
+let firstNum="";
+let firstnum=true;
+let secondNum="";
+let op="";
+// console.log(equalTo)
+function Click(){
+    display.innerText=Calculator(firstNum,secondNum,op);
+}
+ 
+for(let i=0;i<Num.length;i++){
+     
+            Num[i].addEventListener("click",function()
+        { 
+            if(firstnum==true){
+                firstNum+=Num[i].innerText;
+                display.innerText=firstNum;
+            }
+            else{
+                secondNum+=Num[i].innerText;
+                display.innerText=secondNum;
+            }
+            
+        })
+     }
+     
+
+for(let i=0;i<operator.length;i++){
+    operator[i].addEventListener("click",function()
+    {
+        firstnum=false;
+        op+=operator[i].innerText;
+    })
+}
+ 
+ function Calculator(firstNum,secondNum,op){
+    switch(op){
+        case "+":
+            return Number(firstNum)+Number(secondNum);
+             
+                case "-":
+                return Number(firstNum)-Number(secondNum);
+                 
+                    case "*":
+                    return Number(firstNum)*Number(secondNum);
+                    
+                        case "/":
+                        return Number(firstNum)/Number(secondNum);
+                         
+    }
+    
+ }
+ 
+</script>
+</html>
