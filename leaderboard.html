@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            width: 300px;
+            padding: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            margin: auto;
+        }
+        .flex{
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+        }
+        #red{  
+            background-color: red;
+        }
+        #green{
+            background-color: green;  
+        }
+        .compare{
+            width: 80px;
+            height: 40px;
+            text-align: center;
+            border: 1px solid black;
+            font-weight: 700;
+            padding-top: 15px;
+            font-size: 20px;
+        }
+        .compare+p{
+            font-size: large;
+            font-weight: 600;
+            line-height: 0;
+            margin-left: 20px;
+        }
+        .flex+p{
+            font-size: large;
+            font-weight: 600;
+            line-height: 0;
+            margin-left: 120px;
+            margin-bottom: -30px;
+        }
+        #grid{
+            padding: 50px;
+            display: grid;
+            
+            grid-template-columns: repeat(3,1fr);
+            grid-template-areas: "gr gr gr"                   
+                                 "lg1 or1 lg2"
+                                 "or2 or3 or4"
+                                 "lg3 or5 lg4"
+                                 "pr pr pr  "
+                                 "bl bl bl";
+            gap: 20px;
+            
+        }
+        #grey{
+            background-color: rgb(163, 163, 163);
+            grid-area: gr;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+            padding-top: 15px;
+            font-weight: 600; 
+            font-size: 32px; 
+        }
+        .lightgreen1{
+            background-color: rgb(2, 172, 2);
+            grid-area: lg1;
+            height: 50px;
+        }
+        .lightgreen2{
+            background-color: rgb(2, 172, 2);
+            grid-area: lg2;
+            
+        }
+        .lightgreen3{
+            background-color: rgb(2, 172, 2);
+            grid-area: lg3;
+            height: 50px;
+        }
+        .lightgreen4{
+            background-color: rgb(2, 172, 2);
+            grid-area: lg4;
+        }
+        .orange1{
+            background-color: rgb(255, 86, 1);
+            grid-area: or1;
+            
+        }
+        .orange2{
+            background-color:rgb(255, 86, 1);
+            grid-area: or2;
+            height: 50px;
+        }
+        .orange3{
+            background-color: rgb(255, 86, 1);
+            grid-area: or3;
+        }
+        .orange4{
+            background-color: rgb(255, 86, 1);
+            grid-area: or4;
+        }
+        .orange5{
+            background-color: rgb(255, 86, 1);
+            grid-area: or5;
+        }
+        .purple{
+            background-color: rgb(96, 6, 96);
+            grid-area: pr;
+            height: 40px;
+            width: 27%;
+            margin-left: 37%;
+            color: white;
+            font-size: 25px;
+            text-align: center;
+            padding-top: 5px;
+            border: 1px solid black;  
+        }
+        #black{
+            background-color: black;
+            grid-area: bl;
+            height: 40px;
+            color: white;
+            text-align: center;
+            padding-top: 10px;
+            font-size: 22px;
+            border: 1px solid black;
+        }
+        .num{
+            border: 1px solid black;
+            text-align: center;
+            padding-top: 10px;
+            height: 40px;
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="flex">
+            <div>
+                <div id="red" class="compare">43</div>
+                <p>MIN</p>
+            </div>
+            <div>
+                <div id="green" class="compare">2019</div>
+                <p>MAX</p>
+            </div>
+        </div>
+        <p>SCORE</p> 
+        <div id="grid"> 
+            
+            <div id="grey">#</div>
+            <div   class="nm  num lightgreen1">1</div>
+            <div class="nm  num orange1">2</div>
+            <div class="nm  num lightgreen2">3</div>
+            <div class="nm  num orange2">4</div>
+            <div class="nm  num orange3">5</div>
+            <div class="nm  num orange4">6</div>
+            <div class="nm  num lightgreen3">7</div>
+            <div class="nm  num orange5">8</div>
+            <div class="nm  num lightgreen4">9</div>
+            <div class="nm purple">0</div>
+            <div id="black">ENTER</div>
+        </div>
+    </div>
+</body>
+<script>
+    
+    let scr="";
+    let min=document.getElementById("red");
+    let max=document.getElementById("green");
+    let score=document.getElementById("grey");
+     let num=document.getElementsByClassName("nm");
+    for(let i=0;i<num.length;i++){
+        num[i].addEventListener("click",function(){
+            scr+=num[i].innerText;
+            score.innerText=scr;
+        })
+    }
+    let enter=document.getElementById("black");
+    enter.addEventListener("click",function(){
+if(+(score.innerText)<min.innerText){
+    min.innerText=+(score.innerText);
+}
+else if(+(score.innerText)>max.innerText){
+    max.innerText=+(score.innerText);
+}
+else{
+    score.innerText=0;
+}
+    })
+</script>
+</html>
